@@ -1,0 +1,18 @@
+{
+  "name": "vehicle-rental-system",
+  "version": "1.0.0",
+  "description": "Este é um projeto front-end simples para um sistema de locação de veículos, construído com HTML, CSS e JavaScript puros.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.1"
+  }
+}

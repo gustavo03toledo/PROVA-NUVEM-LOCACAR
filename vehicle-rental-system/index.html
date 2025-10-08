@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Locação de Veículos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Loca Carros</h1>
+        <nav>
+            <a href="#" onclick="showPage('vehicles')">Veículos</a>
+            <a href="#" onclick="showPage('clients')">Clientes</a>
+            <a href="#" onclick="showPage('rentals')">Locações</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção de Veículos -->
+        <section id="vehicles" class="page">
+            <h2>Gerenciamento de Veículos</h2>
+            <div id="vehicle-search">
+                <input type="text" id="search-brand" placeholder="Buscar por marca...">
+                <input type="text" id="search-model" placeholder="Buscar por modelo...">
+                <button onclick="renderVehicleList()">Buscar</button>
+            </div>
+            <button onclick="showVehicleForm()">Adicionar Novo Veículo</button>
+            <div id="vehicle-list"></div>
+            <div id="vehicle-form-container" style="display:none;">
+                <h3>Formulário de Veículo</h3>
+                <form id="vehicle-form">
+                    <input type="hidden" id="vehicle-id">
+                    <input type="text" id="vehicle-brand" placeholder="Marca" required>
+                    <input type="text" id="vehicle-model" placeholder="Modelo" required>
+                    <input type="number" id="vehicle-year" placeholder="Ano" required>
+                    <input type="text" id="vehicle-plate" placeholder="Placa" required>
+                    <input type="number" id="vehicle-price" placeholder="Preço da diária" step="0.01" required>
+                    <select id="vehicle-availability" required>
+                        <option value="true">Disponível</option>
+                        <option value="false">Indisponível</option>
+                    </select>
+                    <button type="submit">Salvar</button>
+                    <button type="button" onclick="hideVehicleForm()">Cancelar</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Seção de Clientes -->
+        <section id="clients" class="page" style="display:none;">
+            <h2>Gerenciamento de Clientes</h2>
+            <button onclick="showClientForm()">Adicionar Novo Cliente</button>
+            <div id="client-list"></div>
+            <div id="client-form-container" style="display:none;">
+                <h3>Formulário de Cliente</h3>
+                <form id="client-form">
+                    <input type="hidden" id="client-id">
+                    <input type="text" id="client-name" placeholder="Nome Completo" required>
+                    <input type="email" id="client-email" placeholder="E-mail" required>
+                    <input type="text" id="client-phone" placeholder="Telefone" required>
+                    <button type="submit">Salvar</button>
+                    <button type="button" onclick="hideClientForm()">Cancelar</button>
+                </form>
+            </div>
+            <div id="rental-history-container" style="display:none;">
+                <h3>Histórico de Locações</h3>
+                <div id="rental-history"></div>
+                <button onclick="hideRentalHistory()">Fechar</button>
+            </div>
+        </section>
+
+        <!-- Seção de Locações -->
+        <section id="rentals" class="page" style="display:none;">
+            <h2>Gerenciamento de Locações</h2>
+            <button onclick="showRentalForm()">Nova Locação</button>
+            <div id="rental-list"></div>
+            <div id="rental-form-container" style="display:none;">
+                <h3>Formulário de Locação</h3>
+                <form id="rental-form">
+                    <input type="hidden" id="rental-id">
+                    <select id="rental-client" required></select>
+                    <select id="rental-vehicle" required></select>
+                    <input type="date" id="rental-start-date" required>
+                    <input type="date" id="rental-end-date" required>
+                    <input type="number" id="rental-value" placeholder="Valor da Locação" required>
+                    <button type="submit">Salvar</button>
+                    <button type="button" onclick="hideRentalForm()">Cancelar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Loca Carros. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="js/db.js"></script>
+    <script src="js/vehicles.js"></script>
+    <script src="js/clients.js"></script>
+    <script src="js/rentals.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
